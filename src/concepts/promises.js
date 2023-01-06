@@ -6,7 +6,22 @@ import { heroes } from "../data/heroes"
  */
 export const promisesComponent = (element) => {
 
+  const renderHero = (hero => {
+    element.innerHTML = hero.name;
+  })
 
+  const renderError = (error) => {
+    element.innerHTML = `
+      <h3>${error}</h3>
+    `
+  }
+
+  const id1 = '5d86371fd55e2e2a30fe1cc3';
+  const id2 = '5d86371fd55e2e2a30fe1cc4';
+
+  findHero(id1)
+    .then(renderHero)
+    .catch(renderError)
 }
 
 /**
@@ -18,7 +33,7 @@ const findHero = (id) => {
 
   return new Promise((resolve, reject) => {
 
-    const heros = heroes.find(hero => hero.id === id);
+    const hero = heroes.find(hero => hero.id === id);
 
     if (hero) {
       resolve(hero);
