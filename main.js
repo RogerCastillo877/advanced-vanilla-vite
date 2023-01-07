@@ -9,6 +9,7 @@ import { asyncAwaitComponent } from './src/concepts/06-async-await';
 import { asyncAwaitSecuencialComponent } from './src/concepts/07-async-await-secuencial';
 import { forAwaitComponent } from './src/concepts/08-for-await';
 import { generatorFunctionsComponent } from './src/concepts/09-generator-functions';
+import { generatorExerciseComponent } from './src/concepts/generator-functions-ex';
 
 document.querySelector('#app').innerHTML = `
   <div>
@@ -29,4 +30,4 @@ document.querySelector('#app').innerHTML = `
 
 const element = document.querySelector('.card')
 
-generatorFunctionsComponent(element);
+generatorExerciseComponent(element);
