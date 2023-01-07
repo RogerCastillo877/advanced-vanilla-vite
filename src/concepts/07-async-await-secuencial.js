@@ -2,18 +2,22 @@
  * 
  * @param { HTMLDivElement } element 
  */
-export const promisesRaceComponent = (element) => {
-  element.innerHTML = '...Loading';
+export const asyncAwaitSecuencialComponent = async (element) => {
 
-  const renderValue = (value) => {
-    element.innerHTML = value;
-  }
-
-  Promise.race([
+  // const value1 = await slowPromises();
+  // const value2 = await mediumPromises();
+  // const value3 = await fastPromises();
+  const [value1, value2, value3] = await Promise.all([
     slowPromises(),
     mediumPromises(),
-    fastPromises(),
-  ]).then(renderValue);
+    fastPromises()
+  ])
+
+  element.innerHTML = `
+    value1: ${value1} <br />
+    value2: ${value2} <br />
+    value3: ${value3} <br />
+  `;
 }
 
 const slowPromises = () => new Promise(resolve => {
